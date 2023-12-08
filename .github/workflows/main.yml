@@ -33,7 +33,7 @@ jobs:
       run: |
         CHROMEDRIVER_VERSION="119.0.6045.199"  # Replace with the correct version
         curl -L -o chromedriver.zip https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
-        unzip chromedriver.zip
+        unzip chromedriver
         chmod +x chromedriver
         sudo mv chromedriver /usr/local/bin/
         google-chrome --version
