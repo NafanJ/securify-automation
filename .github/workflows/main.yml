@@ -29,18 +29,19 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+
     - name: Install ChromeDriver
       run: |
-        CHROMEDRIVER_VERSION="119.0.6045.199"  # Replace with the correct version
-        curl -L -o chromedriver https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
-        unzip chromedriver
+        LATEST_CHROMEDRIVER_VERSION=$(curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+        curl -L -o chromedriver.zip https://chromedriver.storage.googleapis.com/$LATEST_CHROMEDRIVER_VERSION/chromedriver_linux64.zip
+        unzip chromedriver.zip
         chmod +x chromedriver
         sudo mv chromedriver /usr/local/bin/
         google-chrome --version
-    - name: Run Pytest
-      run: |
-        pytest --junitxml=results.xml
-      continue-on-error: true
+      shell: /usr/bin/bash -e {0}
+      env:
+        pythonLocation: /opt/hostedtoolcache/Python/3.8.18/x64
+        LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.18/x64/lib
 
     - name: Display Test Output
       if: failure()
