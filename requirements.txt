@@ -1,2 +1,5 @@
 # Pytest is a testing framework
 pytest==6.2.4
+
+# Web Automation Framework
+selenium==3.141.0
