@@ -12,6 +12,7 @@ def browser():
     options.add_argument('--headless')  # Add other options as needed
     driver = webdriver.Chrome(options=options)
     driver.set_page_load_timeout(10)
+    driver.implicitly_wait(10)
     yield driver
     # Teardown - close the browser window after the test
     driver.quit()
