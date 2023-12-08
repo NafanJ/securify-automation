@@ -9,6 +9,7 @@ from main import *
 def browser():
     # Initialize the WebDriver (assuming Chrome here)
     driver = webdriver.Chrome()
+    driver.set_page_load_timeout(30)
     yield driver
     # Teardown - close the browser window after the test
     driver.quit()
