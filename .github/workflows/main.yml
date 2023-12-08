@@ -33,11 +33,12 @@ jobs:
 
     - name: Install ChromeDriver
       run: |
-        CHROMEDRIVER_VERSION=$(curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+        CHROMEDRIVER_VERSION="94.0.4606.61"  # Replace with the correct version
         curl -L -o chromedriver.zip https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
         unzip chromedriver.zip
         chmod +x chromedriver
         sudo mv chromedriver /usr/local/bin/
+
 
     - name: Run Pytest
       run: |
