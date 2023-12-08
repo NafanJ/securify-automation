@@ -24,7 +24,7 @@ jobs:
     - name: Set up virtual environment
       run: |
         python -m venv venv
-        source venv/bin/activate
+        source venv/bin/activate || . venv/bin/activate
 
     - name: Install dependencies
       run: |
@@ -41,4 +41,5 @@ jobs:
       run: cat results.xml
 
     - name: Deactivate virtual environment
-      run: deactivate
+      run: |
+        deactivate || true
