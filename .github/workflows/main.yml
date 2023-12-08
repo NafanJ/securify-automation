@@ -34,11 +34,15 @@ jobs:
     - name: Install ChromeDriver
       run: |
         CHROMEDRIVER_VERSION="119.0.6045.199"  # Replace with the correct version
-        curl -L -o chromedriver.zip https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
+        wget -q "https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip" -O chromedriver.zip
         unzip chromedriver.zip
         chmod +x chromedriver
         sudo mv chromedriver /usr/local/bin/
         google-chrome --version
+    shell: /usr/bin/bash -e {0}
+    env:
+      pythonLocation: /opt/hostedtoolcache/Python/3.8.18/x64
+      LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.18/x64/lib
 
 
     - name: Run Pytest
