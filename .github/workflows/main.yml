@@ -31,19 +31,6 @@ jobs:
         pip install -r requirements.txt
         pip install webdriver-manager
 
-    - name: Install ChromeDriver
-      run: |
-        LATEST_CHROMEDRIVER_VERSION=$(curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
-        curl -L -o chromedriver.zip https://chromedriver.storage.googleapis.com/114.0.5735.16/chromedriver_linux64.zip
-        unzip chromedriver.zip
-        chmod +x chromedriver
-        sudo mv chromedriver /usr/local/bin/
-        google-chrome --version
-      shell: /usr/bin/bash -e {0}
-      env:
-        pythonLocation: /opt/hostedtoolcache/Python/3.8.18/x64
-        LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.18/x64/lib
-
     - name: Run Pytest
       run: |
         pytest
