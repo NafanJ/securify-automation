@@ -3,12 +3,13 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 
 from main import *
 
 @pytest.fixture
 def browser():
-    service = Service()
+    service = Service(ChromeDriverManager(version="119.0.6045.199").install())
     # Initialize the WebDriver (Chrome here) with appropriate options
     options = webdriver.ChromeOptions()
     options.add_argument('--headless')  # Add other options as needed
