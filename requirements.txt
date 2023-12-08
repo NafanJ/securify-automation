@@ -3,5 +3,3 @@ pytest==6.2.4
 
 # Web Automation Framework
 selenium==4.11.2
-
-chromedriver-py
