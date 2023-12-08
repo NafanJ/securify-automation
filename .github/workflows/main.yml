@@ -38,6 +38,7 @@ jobs:
         unzip chromedriver.zip
         chmod +x chromedriver
         sudo mv chromedriver /usr/local/bin/
+        google-chrome --version
 
 
     - name: Run Pytest
