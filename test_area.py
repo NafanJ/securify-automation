@@ -7,9 +7,11 @@ from main import *
 
 @pytest.fixture
 def browser():
-    # Initialize the WebDriver (assuming Chrome here)
-    driver = webdriver.Chrome()
-    driver.set_page_load_timeout(30)
+    # Initialize the WebDriver (Chrome here) with appropriate options
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')  # Add other options as needed
+    driver = webdriver.Chrome(options=options)
+    driver.set_page_load_timeout(10)
     yield driver
     # Teardown - close the browser window after the test
     driver.quit()
