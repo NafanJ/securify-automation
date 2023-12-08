@@ -9,13 +9,7 @@ from main import *
 
 @pytest.fixture
 def browser():
-    service = Service(ChromeDriverManager(version="119.0.6045.199").install())
-    # Initialize the WebDriver (Chrome here) with appropriate options
-    options = webdriver.ChromeOptions()
-    options.add_argument('--headless')  # Add other options as needed
-    driver = webdriver.Chrome(service=service, options=options)
-    driver.set_page_load_timeout(10)
-    driver.implicitly_wait(10)
+    driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
     yield driver
     # Teardown - close the browser window after the test
     driver.quit()
