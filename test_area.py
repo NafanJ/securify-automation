@@ -2,15 +2,17 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.service import Service
 
 from main import *
 
 @pytest.fixture
 def browser():
+    service = Service()
     # Initialize the WebDriver (Chrome here) with appropriate options
     options = webdriver.ChromeOptions()
     options.add_argument('--headless')  # Add other options as needed
-    driver = webdriver.Chrome(options=options)
+    driver = webdriver.Chrome(service=service, options=options)
     driver.set_page_load_timeout(10)
     driver.implicitly_wait(10)
     yield driver
