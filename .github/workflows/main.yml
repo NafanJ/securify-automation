@@ -35,7 +35,12 @@ jobs:
       run: |
         CHROMEDRIVER_VERSION="119.0.6045.199"  # Replace with the correct version
         wget -q "https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip" -O chromedriver.zip
-        unzip chromedriver.zip
+        unzip_result=$(unzip -q chromedriver.zip)
+        if [ $? -ne 0 ]; then
+          echo "Error: Failed to unzip chromedriver.zip"
+          echo "$unzip_result"
+          exit 1
+        fi
         chmod +x chromedriver
         sudo mv chromedriver /usr/local/bin/
         google-chrome --version
@@ -43,6 +48,7 @@ jobs:
       env:
         pythonLocation: /opt/hostedtoolcache/Python/3.8.18/x64
         LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.18/x64/lib
+
 
 
     - name: Run Pytest
