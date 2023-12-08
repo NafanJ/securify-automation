@@ -9,7 +9,7 @@ from main import *
 
 @pytest.fixture
 def browser():
-    driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
+    driver = webdriver.Chrome()
     yield driver
     # Teardown - close the browser window after the test
     driver.quit()
