@@ -9,9 +9,10 @@ from main import *
 
 @pytest.fixture
 def browser():
-    driver = webdriver.Chrome()
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')
+    driver = webdriver.Chrome(options=options)
     yield driver
-    # Teardown - close the browser window after the test
     driver.quit()
 
 
