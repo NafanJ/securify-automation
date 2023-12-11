@@ -31,8 +31,6 @@ jobs:
         pip install -r requirements.txt 
         
     - name: Setup Chrome and chromedriver
-    - uses: browser-actions/setup-chrome@v1
-    - run: chrome --version
     
     - name: Run Pytest
       run: |
@@ -45,3 +43,5 @@ jobs:
     - name: Deactivate virtual environment
       run: |
         deactivate || true
+    - uses: browser-actions/setup-chrome@v1
+    - run: chrome --version
