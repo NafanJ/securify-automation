@@ -46,7 +46,6 @@ jobs:
           curl -L -O "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip"
           unzip chromedriver_linux64.zip && chmod +x chromedriver && sudo mv chromedriver /usr/local/bin
           chromedriver -version
-        shell: bash
     
     - name: Run Pytest
       run: |
