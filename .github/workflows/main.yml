@@ -32,7 +32,7 @@ jobs:
         pip install -r requirements.txt
 
     - name: Set up Chrome and chromedriver
-      uses: joyzoursky/python-chromedriver@v2
+      uses: joyzoursky/docker-python-chromedriver
       with:
         chromedriver-version: 114
 
