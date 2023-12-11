@@ -41,7 +41,6 @@ jobs:
           sudo rm /etc/apt/sources.list.d/google-chrome.list
           export CHROMEDRIVER_VERSION=`curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_MAJOR_VERSION%%.*}`
           curl -L -O "https://chromedriver.storage.googleapis.com/100.0.4896.20/chromedriver_linux64.zip"
-          printf(CHROMER_DRIVER_VERSION)
           unzip chromedriver_linux64.zip && chmod +x chromedriver && sudo mv chromedriver /usr/local/bin
           export CHROMEDRIVER_VERSION=`curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_MAJOR_VERSION%%.*}`
           curl -L -O "hhttps://chromedriver.storage.googleapis.com/100.0.4896.20/chromedriver_linux64.zip"
