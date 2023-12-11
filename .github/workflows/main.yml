@@ -31,11 +31,16 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Setup Chrome and chromedriver
-      uses: browser-actions/setup-chrome@v1
+    - name: Set up Chrome and chromedriver
+      uses: joyzoursky/python-chromedriver@v2
       with:
-        chrome-version: 114
+        chromedriver-version: 114
 
+    - name: Debug ChromeDriver and Chrome paths
+      run: |
+        which chromedriver
+        which google-chrome
+        
     - name: Run Pytest
       run: |
         pytest
