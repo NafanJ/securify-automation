@@ -23,4 +23,8 @@ def test_form_submisson_batch(browser):
         if (test_value.text == "Thank's for signing up..!"):
             assert True
         
-
+def test_form_submission_max(browser):
+    for x in range(1, 100):
+        test_value = form_submission(browser)
+        if (test_value.text == "Thank's for signing up..!"):
+            assert True  
