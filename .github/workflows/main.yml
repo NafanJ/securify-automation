@@ -1,4 +1,4 @@
-name: Run Pytest
+name: Securify Automation Tests
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - main
   repository_dispatch:
     types:
-      - custom-event
+      - remote-trigger
 
 jobs:
   test:
