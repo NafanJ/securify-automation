@@ -25,9 +25,13 @@ def form_submission(driver, fname, lname, mail, phone, password):
     elem.click()
 
     elem = driver.find_element(By.XPATH, '/html/body/section/h1[2]')
+
+    if (fname == ''):
+        elem = driver.find_element(By.XPATH,'/html/body/main/form/div/div[1]/div')
+        return elem
     return elem
 
-def form_fail(driver):
+def form_fail(driver, fname, lname, mail, phone, password):
     driver.get("https://nafanj.github.io/securify/")
 
     elem = driver.find_element(By.XPATH, '//*[@id="btm"]/button')

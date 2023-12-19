@@ -29,7 +29,12 @@ def test_form_submission_max(browser):
         if (test_value.text == "Thank's for signing up..!"):
             assert True  
 
-def test_fail(browser):
-    test_value = form_submission(browser, '', '', '', '', '')
+def test_empty_fname(browser):
+    test_value = form_submission(browser, '', 'Doe', 'johndoe@gmail.com', '+447519197543', 'Password123')
     if (test_value.text == "*This field is Required"):
+        assert True
+
+def test_empty_lname(browser):
+    test_value = form_submission(browser, 'John', '', 'johndoe@gmail.com', '+447519197543', 'Password123')
+    if (test_value.text == "*This field is Rquired"):
         assert True
