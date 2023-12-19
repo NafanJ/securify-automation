@@ -1,4 +1,4 @@
-name: Run Pytest
+name: Securify Automation Tests
 
 on:
   push:
@@ -7,6 +7,9 @@ on:
   pull_request:
     branches:
       - main
+  repository_dispatch:
+    types:
+      - remote-trigger
 
 jobs:
   test:
