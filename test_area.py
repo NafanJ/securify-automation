@@ -53,3 +53,8 @@ def test_empty_password(browser):
     test_value = form_submission(browser, 'John', 'Doe', 'johndoe@gmail.com', '+447519197543', '')
     if (test_value.text == "*This field is Required"):
         assert True
+
+def test_fail():
+    test_value = form_submission(browser, '', 'Doe', 'johndoe@gmail.com', '+447519197543', 'Password123')
+    if (test_value.text == "*This field is Required"):
+        assert False
